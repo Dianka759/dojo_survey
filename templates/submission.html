@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Results</title>
+</head>
+<body>
+
+    <div class="container shadow w-50 mt-3 border border-primary rounded p-4 bg-dark text-light ">
+    <h1 class="text-center">Submitted info!</h1>
+    <div class="border border-danger p-4">
+    {% for u in user %}
+        <h4>Name: <span class="text-danger">{{u.name}} </span></h4>
+        <h4>Gender: <span class="text-danger">{{u.gender}}</span></h4>
+        <h4>Location: <span class="text-danger">{{u.location}}</span></h4>
+        <h4>Favorite Language: <span class="text-danger">{{u.favorite_language}}</span></h4>
+        <h4>Comment: <span class="text-danger">{{u.comment}}</span></h4>
+        <h4>Subscribed to Ciso's dad jokes? <span class="text-danger">{{u.subscribe}}</span></h4>
+    {% endfor %}
+</div>
+    <form action="/clear">
+    <button class="mt-3 btn btn-outline-primary">Go back</button> 
+    </form>
+</div>
+</body>
+</html>
