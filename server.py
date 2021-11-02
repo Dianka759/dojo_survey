@@ -12,13 +12,23 @@ def index():
 
 @app.route('/submit', methods=["POST"])
 def submit():    
-    temp_user = {
-        "name":request.form["name"],
-        "gender":request.form["gender"],
-        "location":request.form["location"],
-        "favorite_language":request.form["favorite_language"],
-        "comment":request.form["comment"],
-        "subscribe":request.form["subscribe"],
+    if "subscribe" not in request.form:
+        temp_user = {
+            "name":request.form["name"],
+            "gender":request.form["gender"],
+            "location":request.form["location"],
+            "favorite_language":request.form["favorite_language"],
+            "comment":request.form["comment"],
+            "subscribe": "How could you not... :( "
+    }
+    else :
+        temp_user = {
+            "name":request.form["name"],
+            "gender":request.form["gender"],
+            "location":request.form["location"],
+            "favorite_language":request.form["favorite_language"],
+            "comment":request.form["comment"],
+            "subscribe": "Duh!!! 💙"
     }
     session["user"].append(temp_user)
     session.modified = True
